@@ -28,7 +28,12 @@ jobs:
           find . -maxdepth 3 -not -path '*/.*'
     - name: Build iOS exploit
       run: |
-        ./scripts/ios/ios_deploy.sh
+       if [ -f "./scripts/ios/ios_deploy.sh" ]; then
+         chmod +x ./scripts/ios/ios_deploy.sh
+         ./scripts/ios/ios_deploy.sh
+       else
+         echo "Skipping: ./scripts/ios/ios_deploy.sh not found"
+       fi
 
     - name: Build Windows exploit
       run: |
