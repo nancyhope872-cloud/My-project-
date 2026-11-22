@@ -22,11 +22,10 @@ jobs:
         java-version: '11'
         distribution: 'temurin' # <-- A
     - name: Build android exploit
-      run: | 
-        pwd
-        ls -la scripts/android || true
-        chmod +x ./scripts /android/
-        android_deploy.sh
+      run: |
+          pwd
+          ls -la
+          find . -maxdepth 3 -not -path '*/.*'
     - name: Build iOS exploit
       run: |
         ./scripts/ios/ios_deploy.sh
