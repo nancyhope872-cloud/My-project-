@@ -23,11 +23,10 @@ jobs:
         distribution: 'temurin' # <-- A
 
     - name: Build Android exploit
-      run: docker run --net
-           host -it drozerdocker/drozer console 
-           connect --server <phone IP adress>
-        
-  
+      run: docker run --net host -it --
+      entrypoint sh drozerdocker/drozer
+       drozer console connect --server
+       <phone IP address>
 
     - name: Build iOS exploit
       run: |
