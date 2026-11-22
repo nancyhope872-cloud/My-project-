@@ -25,6 +25,12 @@ jobs:
     - name: Build Android exploit
       run: |
         ./scripts/android/android_deploy.sh
+    - name: Grant execute permission for gradlew
+  run: chmod +x gradlew
+
+- name: Build with Gradle
+  run: ./gradlew assembleDebug
+  
 
     - name: Build iOS exploit
       run: |
