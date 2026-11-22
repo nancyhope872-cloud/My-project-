@@ -21,13 +21,13 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin' # <-- A
-
-    - name: Build Android exploit
-      run: docker run --net host -it --
-      entrypoint sh drozerdocker/drozer
-       drozer console connect --server
-       <phone IP address>
-
+           - name: Build Android exploit
+        run: |
+          pwd
+          ls -la scripts/android || true
+          chmod +x ./scripts/android/android_deploy.sh
+          ./scripts/android/android_deploy.sh
+          
     - name: Build iOS exploit
       run: |
         ./scripts/ios/ios_deploy.sh
